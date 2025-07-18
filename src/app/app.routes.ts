@@ -7,6 +7,7 @@ import { LayoutComponent } from 'app/layout/layout.component';
 // prettier-ignore
 /* eslint-disable max-len */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
+// @ts-ignore
 export const appRoutes: Route[] = [
 
     // Redirect empty path to '/dashboards/project'
@@ -84,7 +85,8 @@ export const appRoutes: Route[] = [
             {path: 'list-users', loadChildren: () => import('app/modules/ipfp/components/users/list-users/list-users-components.routes')},
             {path: 'add-user', loadChildren: () => import('app/modules/ipfp/components/users/add-user/add-users-components.routes')},
             {path: 'list-tasks', loadChildren: () => import('app/modules/ipfp/components/tasks/list-tasks/list-tasks-components.routes')},
-            {path: 'add-task', loadChildren: () => import('app/modules/ipfp/components/tasks/add-tasks/add-tasks-components.routes')},
+            {path: 'add-task', loadChildren: () => import('app/modules/ipfp/components/tasks/add-task/add-tasks-components.routes')},
+
 
 
             // Dashboards
@@ -106,7 +108,6 @@ export const appRoutes: Route[] = [
                     {path: 'mailbox', loadChildren: () => import('app/modules/admin/apps/mailbox/mailbox.routes')},
                     {path: 'notes', loadChildren: () => import('app/modules/admin/apps/notes/notes.routes')},
                     {path: 'scrumboard', loadChildren: () => import('app/modules/admin/apps/scrumboard/scrumboard.routes')},
-                    {path: 'tasks', loadChildren: () => import('app/modules/admin/apps/tasks/tasks.routes')},
                 ]},
 
             // Pages

@@ -1,11 +1,24 @@
 import {Component, OnInit} from '@angular/core';
 import {TaskModel} from "../../../models/task.model";
 import {TaskService} from "../../../services/task.service";
+import {MatButton} from "@angular/material/button";
+import {MatDrawer, MatDrawerContainer} from "@angular/material/sidenav";
+import {MatIcon} from "@angular/material/icon";
+import {MatTooltip} from "@angular/material/tooltip";
+import {NgForOf, NgIf} from "@angular/common";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-list-tasks',
   standalone: true,
   imports: [
+      MatButton,
+      MatDrawerContainer,
+      MatIcon,
+      MatTooltip,
+      NgForOf,
+      NgIf,
+      RouterLink,
 
   ],
   templateUrl: './list-tasks.component.html',
@@ -16,8 +29,7 @@ export class ListTasksComponent implements OnInit {
   loading: boolean = true;
   error: string | null = null;
 
-  constructor(private readonly taskService: TaskService) {
-  }
+  constructor(private readonly taskService: TaskService) {}
 
   ngOnInit(): void {
     this.loadTasks();
@@ -37,7 +49,7 @@ export class ListTasksComponent implements OnInit {
     });
   }
 
-  deletetasks(tasksId: number): void {
+  deleteTask(tasksId: number): void {
     const confirmDelete = window.confirm('Êtes-vous sûr de vouloir supprimer cette taches ?');
     if (confirmDelete) {
       this.taskService.deleteTask(tasksId).subscribe({
