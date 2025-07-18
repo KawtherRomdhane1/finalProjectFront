@@ -1,17 +1,15 @@
 <div class="flex min-w-0 flex-auto flex-col">
-
     <!-- Header -->
     <div class="bg-card flex flex-0 flex-col border-b p-6 sm:flex-row sm:items-center sm:justify-between sm:px-10 sm:py-8">
-        <!-- Titre et lien -->
         <div class="min-w-0 flex-1">
             <div class="flex flex-wrap items-center font-medium">
                 <div>
-                    <a class="whitespace-nowrap text-primary-500"></a>
+                    <a class="whitespace-nowrap text-primary-500">Gestion des utilisateurs</a>
                 </div>
             </div>
             <div class="mt-2">
                 <h2 class="truncate text-3xl font-extrabold leading-7 tracking-tight sm:leading-10 md:text-4xl">
-                    Ajouter une tache
+                    Modifier un utilisateur
                 </h2>
             </div>
         </div>
@@ -22,7 +20,7 @@
                     mat-flat-button
                     color="accent"
                     class="rounded-full"
-                    [routerLink]="['/list-tasks']"
+                    [routerLink]="['/list-users']"
             >
                 <mat-icon class="mr-2">arrow_back</mat-icon>
                 Retourner à la liste
@@ -35,21 +33,19 @@
         <div class="w-full">
             <form
                     class="bg-white mt-8 flex w-full flex-col space-y-6 rounded-2xl p-8 shadow"
-                    [formGroup]="taskForm"
+                    [formGroup]="userForm"
             >
-
-                <!-- Inputs côte à côte -->
+                <!-- Inputs -->
                 <div class="flex flex-wrap gap-4 w-full">
                     <mat-form-field class="flex-1 min-w-[200px]">
-                        <mat-label>content</mat-label>
-                        <input matInput formControlName="content" autocomplete="off" />
+                        <mat-label>Nom d'utilisateur</mat-label>
+                        <input matInput formControlName="username" autocomplete="off" />
                     </mat-form-field>
+
                     <mat-form-field class="flex-1 min-w-[200px]">
-                        <mat-label>title</mat-label>
-                        <input matInput formControlName="title" autocomplete="off" />
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email" autocomplete="off" />
                     </mat-form-field>
-
-
                 </div>
 
                 <!-- Actions -->
@@ -59,9 +55,7 @@
                         Enregistrer
                     </button>
                 </div>
-
             </form>
         </div>
     </div>
-
 </div>

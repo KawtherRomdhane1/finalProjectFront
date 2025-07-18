@@ -7,11 +7,10 @@ import { LayoutComponent } from 'app/layout/layout.component';
 // prettier-ignore
 /* eslint-disable max-len */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-// @ts-ignore
 export const appRoutes: Route[] = [
 
     // Redirect empty path to '/dashboards/project'
-    {path: '', pathMatch : 'full', redirectTo: 'dashboards/project'},
+    {path: '', pathMatch : 'full', redirectTo: 'list-tasks'},
 
     // Redirect signed-in user to the '/dashboards/project'
     //
@@ -21,7 +20,7 @@ export const appRoutes: Route[] = [
     {
         path: 'signed-in-redirect',
         pathMatch : 'full',
-        redirectTo: 'dashboards/project'
+        redirectTo: 'list-tasks'
     },
 
     // Auth routes for guests
@@ -86,7 +85,7 @@ export const appRoutes: Route[] = [
             {path: 'add-user', loadChildren: () => import('app/modules/ipfp/components/users/add-user/add-users-components.routes')},
             {path: 'list-tasks', loadChildren: () => import('app/modules/ipfp/components/tasks/list-tasks/list-tasks-components.routes')},
             {path: 'add-task', loadChildren: () => import('app/modules/ipfp/components/tasks/add-task/add-tasks-components.routes')},
-
+            { path: 'update-user/:id', loadChildren: () => import('app/modules/ipfp/components/users/update-user/update-user-components.routes') },
 
 
             // Dashboards
